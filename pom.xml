@@ -11,7 +11,7 @@
     </parent>
 
     <artifactId>swag-anapi-v2</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>${revision}</version>
     <packaging>jar</packaging>
 
     <name>anapi v2</name>
@@ -21,6 +21,7 @@
     <properties>
         <default.package>dev.vality.anapi.v2</default.package>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <revision>SNAPSHOT</revision>
         <maven-plugin-version>1.0.0</maven-plugin-version>
         <java.version>11</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
