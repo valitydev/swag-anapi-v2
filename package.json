@@ -1,11 +1,11 @@
 {
   "name": "swag-anapi-v2",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "@redocly/openapi-cli": "^1.0.0-beta.61",
-    "json-merge-patch": "^1.0.0",
-    "redoc-cli": "^0.12.1"
+    "@redocly/openapi-cli": "^1.0.0-beta.79",
+    "json-merge-patch": "^1.0.2",
+    "redoc-cli": "^0.13.2"
   },
   "scripts": {
     "start": "openapi preview-docs",
