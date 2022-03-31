@@ -1,15 +1,15 @@
 {
-  "name": "swag-anapi-v2",
-  "version": "1.0.0",
-  "private": true,
-  "dependencies": {
-    "@redocly/openapi-cli": "^1.0.0-beta.79",
-    "json-merge-patch": "^1.0.2",
-    "redoc-cli": "^0.13.2"
-  },
+  "name": "@vality/swag-anapi-v2",
+  "version": "2.0.0",
+  "license": "Apache-2.0",
   "scripts": {
     "start": "openapi preview-docs",
     "build": "openapi bundle -o web_deploy/openapi.yaml && openapi bundle -o web_deploy/openapi.json",
-    "validate": "openapi lint"
+    "validate": "openapi lint",
+    "codegen": "vality-openapi generate ./web_deploy/openapi.json"
+  },
+  "devDependencies": {
+    "@redocly/openapi-cli": "1.0.0-beta.79",
+    "@vality/openapi-generator-cli": "0.1.1-5e87589.0"
   }
 }

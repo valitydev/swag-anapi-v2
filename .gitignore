@@ -60,3 +60,6 @@ web_deploy/
 # Gradle:
 .idea/gradle.xml
 .idea/libraries
+
+# Frontend
+/lib

@@ -2,17 +2,7 @@
 apiDefinitions:
   core: 'openapi/openapi.yaml'
 lint:
-  plugins:
-    - './plugins/local.js'
   extends:
     - recommended
   rules:
     tag-description: off
-  preprocessors:
-    local/merge-schemas: on
-referenceDocs:
-  showConsole: true
-  layout:
-    scope: section
-  routingStrategy: browser
-  htmlTemplate: ./web/index.html
