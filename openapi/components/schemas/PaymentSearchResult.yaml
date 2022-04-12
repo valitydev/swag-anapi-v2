@@ -49,8 +49,6 @@ allOf:
         $ref: '../schemas/Payer.yaml'
       flow:
         $ref: '../schemas/PaymentFlow.yaml'
-      geoLocationInfo:
-        $ref: '../schemas/GeoLocationInfo.yaml'
       metadata:
         description: Связанные с платежом метаданные
         type: object

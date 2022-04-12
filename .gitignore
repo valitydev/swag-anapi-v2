@@ -48,6 +48,7 @@ web_deploy/
 .idea/vcs.xml
 .idea/jsLibraryMappings.xml
 *.iml
+.DS_Store
 
 # Sensitive or high-churn files:
 .idea/dataSources.ids
