@@ -13,7 +13,6 @@ post:
     - $ref: '../components/parameters/deadline.yaml'
     - $ref: '../components/parameters/partyIDRequired.yaml'
     - $ref: '../components/parameters/shopID.yaml'
-    - $ref: '../components/parameters/paymentInstitutionRealm.yaml'
     - $ref: '../components/parameters/fromTimeRequired.yaml'
     - $ref: '../components/parameters/toTimeRequired.yaml'
     - name: reportType
