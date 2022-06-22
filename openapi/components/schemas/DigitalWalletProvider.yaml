@@ -1,0 +1,5 @@
+description: Провайдер электронных денежных средств
+type: string
+example: QIWI
+# enum:
+#   - QIWI
