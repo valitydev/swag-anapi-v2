@@ -1,5 +1,6 @@
 description: Провайдер терминальной сети
 type: string
+example: EUROSET
 # enum:
 #   - euroset
 #   - wechat

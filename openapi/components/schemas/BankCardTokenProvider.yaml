@@ -1,5 +1,6 @@
 description: Провайдер платежных токенов
 type: string
+example: APPLE PAY
 # enum:
 #   - applepay
 #   - googlepay

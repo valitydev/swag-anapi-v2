@@ -1,5 +1,6 @@
 description: Платежная система
 type: string
+example: VISA
 # enum:
 #   - visa
 #   - mastercard

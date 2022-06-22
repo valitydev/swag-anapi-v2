@@ -1,5 +1,6 @@
 description: Тип криптовалюты
 type: string
+example: BTC
 # enum:
 #   - bitcoin
 #   - litecoin
