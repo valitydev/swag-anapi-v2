@@ -1,9 +1,5 @@
 required:
-  - digitalWalletDetailsType
+  - provider
 properties:
-  digitalWalletDetailsType:
-    type: string
-    enum:
-      - DigitalWalletDetailsQIWI
-discriminator:
-  propertyName: digitalWalletDetailsType
+  provider:
+    $ref: '../schemas/DigitalWalletProvider.yaml'
