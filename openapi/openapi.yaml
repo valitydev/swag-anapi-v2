@@ -158,8 +158,6 @@ paths:
     $ref: './paths/reports@{reportID}@cancel.yaml'
   '/reports/{reportID}/files/{fileID}/download':
     $ref: './paths/reports@{reportID}@files@{fileID}@download.yaml'
-  '/crypto-currencies':
-    $ref: './paths/crypto-currencies.yaml'
 components:
   securitySchemes:
     bearer:
