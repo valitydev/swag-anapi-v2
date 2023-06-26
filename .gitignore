@@ -64,3 +64,4 @@ web_deploy/
 
 # Frontend
 /lib
+.openapitools.json
