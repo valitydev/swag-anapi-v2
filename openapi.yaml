@@ -1977,6 +1977,7 @@ components:
           PaymentToolDetailsCryptoWallet: '#/components/schemas/PaymentToolDetailsCryptoWallet'
           PaymentToolDetailsMobileCommerce: '#/components/schemas/PaymentToolDetailsMobileCommerce'
           PaymentToolDetailsPaymentTerminal: '#/components/schemas/PaymentToolDetailsPaymentTerminal'
+          PaymentToolDetailsDigitalWallet: '#/components/schemas/PaymentToolDetailsDigitalWallet'
     BankCardPaymentSystem:
       description: Платежная система
       type: string
@@ -2055,6 +2056,21 @@ components:
       allOf:
         - $ref: '#/components/schemas/PaymentToolDetails'
         - $ref: '#/components/schemas/PaymentTerminalDetails'
+    DigitalWalletProvider:
+      description: Провайдер электронных денежных средств
+      type: string
+      example: QIWI
+    DigitalWalletDetails:
+      required:
+        - provider
+      properties:
+        provider:
+          $ref: '#/components/schemas/DigitalWalletProvider'
+    PaymentToolDetailsDigitalWallet:
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/PaymentToolDetails'
+        - $ref: '#/components/schemas/DigitalWalletDetails'
     CustomerPayer:
       type: object
       description: Многоразовое платежное средство
