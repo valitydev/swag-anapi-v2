@@ -13,3 +13,4 @@ discriminator:
     'PaymentToolDetailsCryptoWallet': '../schemas/PaymentToolDetailsCryptoWallet.yaml'
     'PaymentToolDetailsMobileCommerce': '../schemas/PaymentToolDetailsMobileCommerce.yaml'
     'PaymentToolDetailsPaymentTerminal': '../schemas/PaymentToolDetailsPaymentTerminal.yaml'
+    'PaymentToolDetailsDigitalWallet': '../schemas/PaymentToolDetailsDigitalWallet.yaml'
