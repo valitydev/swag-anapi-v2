@@ -6,7 +6,7 @@ info:
     ## Описание
 
     Vality Analytics API является точкой взаимодействия с аналитической и
-    поисковой частью платформы. Все аналитическоие запросы осуществляются с
+    поисковой частью платформы. Все аналитическое запросы осуществляются с
     помощью вызовов соответствующих методов API. Любые сторонние приложения,
     включая наши веб-сайты, личные кабинеты и другие UI-интерфейсы являются
     внешними приложениями-клиентами.
@@ -82,7 +82,7 @@ info:
 
     ### Ошибки бизнес-логики
 
-    Все ошибки бизнес-логики имеют следуюший вид:
+    Все ошибки бизнес-логики имеют следующий вид:
 
       ```json
       {
@@ -102,7 +102,7 @@ info:
       | **ambiguousPartyID**             | Невозможно однозначно определить идентификатор участника, укажите идентификатор в запросе явно.                                       |
       | **invalidPartyID**               | Участник с указанным идентификатором не существует или недоступен.                                                                    |
       | **invalidRequest**               | Прочие неверные данные запроса.                                                                                                       |
-      | **limitExceeded**                | Запрашеваемое количество данных должно быть меньше чем указано.                                                                                                       |
+      | **limitExceeded**                | Запрашиваемое количество данных должно быть меньше чем указано.                                                                                                       |
       | **badContinuationToken**         | Не валидный ContinuationToken.                                                                                                       |
 
     ### Общие ошибки
@@ -983,70 +983,6 @@ paths:
           $ref: '#/components/responses/SearchRequestError'
         '401':
           $ref: '#/components/responses/Unauthorized'
-  /payouts:
-    get:
-      description: Поиск выплат
-      summary: Поиск выплат
-      tags:
-        - Search
-      operationId: searchPayouts
-      parameters:
-        - $ref: '#/components/parameters/requestIDRequired'
-        - $ref: '#/components/parameters/deadline'
-        - $ref: '#/components/parameters/partyIDRequired'
-        - $ref: '#/components/parameters/shopID'
-        - $ref: '#/components/parameters/shopIDs'
-        - $ref: '#/components/parameters/paymentInstitutionRealm'
-        - $ref: '#/components/parameters/fromTimeRequired'
-        - $ref: '#/components/parameters/toTimeRequired'
-        - $ref: '#/components/parameters/limitRequired'
-        - name: payoutID
-          in: query
-          description: Идентификатор выплаты
-          required: false
-          schema:
-            type: string
-            maxLength: 40
-            minLength: 1
-        - name: payoutToolType
-          in: query
-          required: false
-          schema:
-            type: string
-            enum:
-              - PayoutAccount
-              - Wallet
-              - PaymentInstitutionAccount
-            description: |
-              Тип выплаты для поиска
-                * PayoutAccount - выплата на банковский счёт
-                * Wallet - выплата на кошелёк
-                * PaymentInstitutionAccount - выплата на счёт платежной организации
-        - name: continuationToken
-          in: query
-          required: false
-          schema:
-            $ref: '#/components/schemas/ContinuationToken'
-      responses:
-        '200':
-          description: Найденные выплаты
-          content:
-            application/json; charset=utf-8:
-              schema:
-                type: object
-                properties:
-                  totalCount:
-                    type: integer
-                  continuationToken:
-                    $ref: '#/components/schemas/ContinuationToken'
-                  result:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/Payout'
-        '400':
-          $ref: '#/components/responses/SearchRequestError'
-        '401':
-          $ref: '#/components/responses/Unauthorized'
   /invoice-templates:
     get:
       description: Поиск шаблонов инвойсов
@@ -1210,7 +1146,6 @@ paths:
               enum:
                 - provisionOfService
                 - paymentRegistry
-                - paymentRegistryByPayout
         - name: continuationToken
           in: query
           required: false
@@ -2503,203 +2438,6 @@ components:
           $ref: '#/components/schemas/ChargebackReason'
         content:
           $ref: '#/components/schemas/Content'
-    PayoutToolDetails:
-      description: Данные средства вывода
-      type: object
-      properties:
-        detailsType:
-          description: Тип средства вывода
-          type: string
-      required:
-        - detailsType
-      discriminator:
-        propertyName: detailsType
-        mapping:
-          PayoutToolDetailsBankAccount: '#/components/schemas/PayoutToolDetailsBankAccount'
-          PayoutToolDetailsInternationalBankAccount: '#/components/schemas/PayoutToolDetailsInternationalBankAccount'
-          PayoutToolDetailsPaymentsInstitutionAccount: '#/components/schemas/PayoutToolDetailsPaymentInstitutionAccount'
-          PayoutToolDetailsWalletInfo: '#/components/schemas/PayoutToolDetailsWalletInfo'
-    BankAccount:
-      description: >
-        Данные расчётного счёта в банковской организации, ведущей деятельность
-        под
-
-        юрисдикцией РФ.
-      type: object
-      required:
-        - account
-        - bankName
-        - bankPostAccount
-        - bankBik
-      properties:
-        account:
-          description: Номер счёта
-          type: string
-          pattern: ^\d{20}$
-        bankName:
-          description: Наименование юридического лица банковской организации
-          type: string
-          maxLength: 100
-        bankPostAccount:
-          type: string
-          pattern: ^\d{20}$
-        bankBik:
-          description: БИК банковской организации
-          type: string
-          pattern: ^\d{9}$
-    PayoutToolDetailsBankAccount:
-      type: object
-      allOf:
-        - $ref: '#/components/schemas/PayoutToolDetails'
-        - $ref: '#/components/schemas/BankAccount'
-    InternationalBankDetails:
-      description: Данные международной банковской организации
-      type: object
-      properties:
-        bic:
-          description: >
-            Business Identifier Code [ISO
-            9362](https://en.wikipedia.org/wiki/ISO_9362).
-          type: string
-          pattern: ^([A-Z0-9]{8}|[A-Z0-9]{11})$
-          example: |
-            RZBAATWW
-        abartn:
-          description: >
-            [ABA Routing Transit
-            Number](https://en.wikipedia.org/wiki/ABA_routing_transit_number)
-
-            банковской организации, специфичный для банковской системы USA.
-          type: string
-          pattern: ^[0-9]{9}$
-          example: '129131673'
-        name:
-          description: Наименование юридического лица банковской организации
-          type: string
-          maxLength: 100
-          example: |
-            RAIFFEISEN BANK INTERNATIONAL AG
-        countryCode:
-          x-merge-obj:
-            - $ref: ../schemas/Residence.yaml
-            - description: >
-                Страна резиденции банковской организации,
-
-                alpha-3 код по стандарту [ISO
-                3166-1](https://en.wikipedia.org/wiki/ISO_3166-1)
-          type: string
-          pattern: ^[A-Z]{2}$
-          example: AT
-        address:
-          description: Адрес юридического лица банковской организации
-          type: string
-          maxLength: 1000
-          example: |
-            1030, VIENNA, AM STADTPARK 9
-    InternationalBankAccount:
-      description: Данные международного банковского счёта
-      type: object
-      properties:
-        number:
-          description: |
-            Номер счёта
-          type: string
-          pattern: ^[0-9A-Z]{8,40}$
-          example: '123006951'
-        iban:
-          description: >
-            International Bank Account Number [ISO
-            13616](https://en.wikipedia.org/wiki/International_Bank_Account_Number)
-          type: string
-          pattern: ^[A-Z0-9]{3,35}$
-          example: GR1601101250000000012300695
-        bankDetails:
-          $ref: '#/components/schemas/InternationalBankDetails'
-        correspondentBankAccount:
-          $ref: '#/components/schemas/InternationalCorrespondentBankAccount'
-    InternationalCorrespondentBankAccount:
-      allOf:
-        - description: Данные корреспондентского счёта указанного банка
-        - $ref: '#/components/schemas/InternationalBankAccount'
-    PayoutToolDetailsInternationalBankAccount:
-      type: object
-      allOf:
-        - $ref: '#/components/schemas/PayoutToolDetails'
-        - $ref: '#/components/schemas/InternationalBankAccount'
-    PaymentInstitutionAccount:
-      description: Аккаунт платёжной организации
-      type: object
-    PayoutToolDetailsPaymentInstitutionAccount:
-      type: object
-      allOf:
-        - $ref: '#/components/schemas/PayoutToolDetails'
-        - $ref: '#/components/schemas/PaymentInstitutionAccount'
-    PayoutToolDetailsWalletInfo:
-      type: object
-      allOf:
-        - $ref: '#/components/schemas/PayoutToolDetails'
-        - type: object
-          required:
-            - walletID
-          properties:
-            walletID:
-              description: Идентификатор кошелька
-              type: string
-              maxLength: 40
-              minLength: 1
-    Payout:
-      type: object
-      required:
-        - id
-        - shopID
-        - createdAt
-        - amount
-        - currency
-        - payoutToolDetails
-      properties:
-        id:
-          description: Идентификатор выплаты
-          type: string
-        shopID:
-          description: Идентификатор магазина
-          type: string
-        createdAt:
-          description: Дата и время создания
-          type: string
-          format: date-time
-        cancellationDetails:
-          description: Детали отмены выплаты
-          type: string
-          maxLength: 1000
-        amount:
-          description: |
-            Сумма выплаты в минорных денежных
-            единицах, например в копейках в случае указания российских рублей в
-            качестве валюты.
-          type: integer
-          format: int64
-          minimum: 1
-        fee:
-          description: Комиссия системы, в минорных денежных единицах
-          type: integer
-          format: int64
-          minimum: 0
-        currency:
-          $ref: '#/components/schemas/Currency'
-        payoutToolDetails:
-          $ref: '#/components/schemas/PayoutToolDetails'
-        status:
-          description: Статус выплаты
-          type: string
-        metadata:
-          description: >
-            Произвольный, специфичный для клиента API и непрозрачный для системы
-            набор данных,
-
-            ассоциированных с данной выплатой
-          type: object
-          example:
-            payoutDesc: Custom payout
     InvoiceTemplateDetails:
       type: object
       properties:
@@ -2915,7 +2653,6 @@ components:
           enum:
             - provisionOfService
             - paymentRegistry
-            - paymentRegistryByPayout
         partyID:
           description: Идентификатор участника
           type: string
