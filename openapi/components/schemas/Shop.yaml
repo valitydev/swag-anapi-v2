@@ -37,14 +37,5 @@ properties:
       Идентификатор договора, на основании которого производится обслуживание
       магазина
     type: string
-  payoutToolID:
-    description: |
-      Идентификатор средства вывода в рамках контракта, используемое в процессе
-      вывода по магазину
-    type: string
-  scheduleID:
-    description: Идентификатор расписания выводов
-    type: integer
-    format: int32
   account:
     $ref: '../schemas/ShopAccount.yaml'

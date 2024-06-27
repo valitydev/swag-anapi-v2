@@ -81,7 +81,6 @@ get:
           enum:
             - provisionOfService
             - paymentRegistry
-            - paymentRegistryByPayout
     - name: continuationToken
       in: query
       required: false
