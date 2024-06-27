@@ -9,7 +9,7 @@
     "codegen": "vality-openapi generate ./web_deploy/openapi.json"
   },
   "devDependencies": {
-    "@redocly/openapi-cli": "1.0.0-beta.79",
+    "@redocly/openapi-cli": "1.0.0-beta.95",
     "@vality/openapi-generator-cli": "2.0.0"
   }
 }
