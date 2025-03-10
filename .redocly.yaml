@@ -1,8 +1,7 @@
-# See https://docs.redoc.ly/cli/configuration/ for more information.
-apiDefinitions:
-  core: 'openapi/openapi.yaml'
-lint:
-  extends:
-    - recommended
-  rules:
-    tag-description: off
+# See https://redocly.com/docs/cli/configuration/ for more information.
+apis:
+  core:
+    root: openapi/openapi.yaml
+
+extends:
+  - ./node_modules/@vality/redocly-utils/lib/config.yaml
