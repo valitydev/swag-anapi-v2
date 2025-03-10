@@ -64,4 +64,5 @@ web_deploy/
 
 # Frontend
 /lib
-.openapitools.json
+/vality-openapi
+openapitools.json
