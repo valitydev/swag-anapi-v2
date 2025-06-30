@@ -98,8 +98,8 @@
                                         <dateLibrary>java8</dateLibrary>
                                         <delegatePattern>true</delegatePattern>
                                         <useBeanValidation>true</useBeanValidation>
-                                        <useJakartaEe>true</useJakartaEe>
-                                        <annotationLibrary>swagger2</annotationLibrary>
+                                        <useSpringBoot3>true</useSpringBoot3>
+                                        <hideGenerationTimestamp>true</hideGenerationTimestamp>
                                     </configOptions>
                                 </configuration>
                             </execution>
@@ -128,7 +128,7 @@
                                     <configOptions>
                                         <dateLibrary>java8</dateLibrary>
                                         <useJakartaEe>true</useJakartaEe>
-                                        <annotationLibrary>swagger2</annotationLibrary>
+                                        <hideGenerationTimestamp>true</hideGenerationTimestamp>
                                     </configOptions>
                                     <library>resttemplate</library>
                                     <apiPackage>${default.package}.api</apiPackage>
