@@ -2236,6 +2236,7 @@ components:
         - dispute
         - authorisation
         - processing_error
+        - system_set
     ChargebackReason:
       description: Данные о причине чарджбэка
       type: object
