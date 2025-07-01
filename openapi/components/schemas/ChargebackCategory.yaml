@@ -5,3 +5,4 @@ enum:
   - dispute
   - authorisation
   - processing_error
+  - system_set
