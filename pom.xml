@@ -28,6 +28,8 @@
         <jackson-version>2.19.1</jackson-version>
         <spring-boot-version>3.5.3</spring-boot-version>
         <openapi-generator-version>7.14.0</openapi-generator-version>
+        <pubRepo>https://s01.oss.sonatype.org/content/repositories/releases</pubRepo>
+        <pubSnapRepo>https://s01.oss.sonatype.org/content/repositories/snapshots</pubSnapRepo>
     </properties>
 
     <dependencyManagement>
