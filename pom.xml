@@ -10,7 +10,7 @@
         <version>3.0.2</version>
     </parent>
 
-    <artifactId>swag-anapi-v2</artifactId>
+    <artifactId>${artifact.name}</artifactId>
     <version>${revision}</version>
     <packaging>jar</packaging>
 
@@ -20,6 +20,7 @@
 
     <properties>
         <default.package>dev.vality.anapi.v2</default.package>
+        <artifact.name>swag-anapi-v2</artifact.name>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <revision>SNAPSHOT</revision>
         <java.version>21</java.version>
@@ -74,6 +75,9 @@
     <profiles>
         <profile>
             <id>server</id>
+            <properties>
+                <artifact.name>swag-anapi-v2-server</artifact.name>
+            </properties>
             <build>
                 <plugins>
                     <plugin>
@@ -112,6 +116,9 @@
         </profile>
         <profile>
             <id>client</id>
+            <properties>
+                <artifact.name>swag-anapi-v2-client</artifact.name>
+            </properties>
             <build>
                 <plugins>
                     <plugin>
