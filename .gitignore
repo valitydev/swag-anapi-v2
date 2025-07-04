@@ -39,6 +39,7 @@ node_modules
 # Generated
 web_deploy/
 /target/
+.flattened-pom.xml
 
 # User-specific stuff:
 .idea/
