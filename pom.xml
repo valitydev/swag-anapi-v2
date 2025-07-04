@@ -126,7 +126,7 @@
                         </executions>
                         <configuration>
                             <updatePomFile>true</updatePomFile>
-                            <flattenMode>resolveCiFriendliesOnly</flattenMode>
+                            <flattenMode>oss</flattenMode>
                         </configuration>
                     </plugin>
                 </plugins>
@@ -179,7 +179,7 @@
                         </executions>
                         <configuration>
                             <updatePomFile>true</updatePomFile>
-                            <flattenMode>resolveCiFriendliesOnly</flattenMode>
+                            <flattenMode>oss</flattenMode>
                         </configuration>
                     </plugin>
                 </plugins>
