@@ -124,7 +124,7 @@
                         </executions>
                         <configuration>
                             <updatePomFile>true</updatePomFile>
-                            <flattenMode>oss</flattenMode>
+                            <flattenMode>osshr</flattenMode>
                         </configuration>
                     </plugin>
                 </plugins>
