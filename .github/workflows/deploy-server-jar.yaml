@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - 'master'
+      - 'epic-1'
 
 jobs:
   deploy:
