@@ -4,7 +4,7 @@ info:
   title: Vality Platform Analytics API
   description: |
     ## Описание
-    Vality Analytics API является точкой взаимодействия с аналитической и поисковой частью платформы. Все аналитическое запросы осуществляются с помощью вызовов соответствующих методов API. Любые сторонние приложения, включая наши веб-сайты, личные кабинеты и другие UI-интерфейсы являются внешними приложениями-клиентами.
+    Vality Analytics API является точкой взаимодействия с аналитической и поисковой частью платформы. Все аналитические запросы осуществляются с помощью вызовов соответствующих методов API. Любые сторонние приложения, включая наши веб-сайты, личные кабинеты и другие UI-интерфейсы являются внешними приложениями-клиентами.
 
     Vality Analytics API работает поверх HTTP-протокола. Мы используем REST архитектуру, схема описывается в соответствии со стандартом [OpenAPI v3.0](https://spec.openapis.org/oas/v3.0.0/). Коды возврата описываются соответствующими HTTP-статусами. Платформа принимает и возвращает JSON-структуры в HTTP body.
 
@@ -57,7 +57,7 @@ info:
       | **invalidPartyID**               | Участник с указанным идентификатором не существует или недоступен.                                                                    |
       | **invalidRequest**               | Прочие неверные данные запроса.                                                                                                       |
       | **limitExceeded**                | Запрашиваемое количество данных должно быть меньше чем указано.                                                                                                       |
-      | **badContinuationToken**         | Не валидный ContinuationToken.                                                                                                       |
+      | **badContinuationToken**         | Невалидный ContinuationToken.                                                                                                       |
 
     ### Общие ошибки
     Ошибки возникающие при попытках совершения операций с незарегистрированными в системе объектами. Имеют вид
@@ -97,9 +97,9 @@ info:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0.html
 servers:
-  - url: 'https://api.vality.dev/lk/v2'
+  - url: "https://api.vality.dev/lk/v2"
 security:
-  - bearer: [ ]
+  - bearer: []
 tags:
   - name: Search
     description: |
@@ -114,49 +114,49 @@ tags:
       Аналитические методы по статистике платежей
     x-displayName: Аналитика
 paths:
-  '/analytics/payments/amount':
-    $ref: './paths/analytics@payments@amount.yaml'
-  '/analytics/payments/average':
-    $ref: './paths/analytics@payments@average.yaml'
-  '/analytics/payments/count':
-    $ref: './paths/analytics@payments@count.yaml'
-  '/analytics/payments/errors':
-    $ref: './paths/analytics@payments@errors.yaml'
-  '/analytics/payments/split-amount':
-    $ref: './paths/analytics@payments@split-amount.yaml'
-  '/analytics/payments/split-count':
-    $ref: './paths/analytics@payments@split-count.yaml'
-  '/analytics/payments/sub-errors':
-    $ref: './paths/analytics@payments@sub-errors.yaml'
-  '/analytics/payments-tool':
-    $ref: './paths/analytics@payments-tool.yaml'
-  '/analytics/refunds/amount':
-    $ref: './paths/analytics@refunds@amount.yaml'
-  '/analytics/balances/current':
-    $ref: './paths/analytics@balances@current.yaml'
-  '/analytics/balances/current-shop-balances':
-    $ref: './paths/analytics@balances@current-shop-balances.yaml'
-  '/analytics/crediting/amount':
-    $ref: './paths/analytics@crediting@amount.yaml'
-  '/invoices':
-    $ref: './paths/invoices.yaml'
-  '/payments':
-    $ref: './paths/payments.yaml'
-  '/refunds':
-    $ref: './paths/refunds.yaml'
-  '/chargebacks':
-    $ref: './paths/chargebacks.yaml'
-  '/invoice-templates':
-    $ref: './paths/invoice-templates.yaml'
-  '/reports':
-    $ref: './paths/reports.yaml'
-  '/reports/{reportID}':
-    $ref: './paths/reports@{reportID}.yaml'
-  '/reports/{reportID}/cancel':
-    $ref: './paths/reports@{reportID}@cancel.yaml'
-  '/reports/{reportID}/files/{fileID}/download':
-    $ref: './paths/reports@{reportID}@files@{fileID}@download.yaml'
+  "/analytics/payments/amount":
+    $ref: "./paths/analytics@payments@amount.yaml"
+  "/analytics/payments/average":
+    $ref: "./paths/analytics@payments@average.yaml"
+  "/analytics/payments/count":
+    $ref: "./paths/analytics@payments@count.yaml"
+  "/analytics/payments/errors":
+    $ref: "./paths/analytics@payments@errors.yaml"
+  "/analytics/payments/split-amount":
+    $ref: "./paths/analytics@payments@split-amount.yaml"
+  "/analytics/payments/split-count":
+    $ref: "./paths/analytics@payments@split-count.yaml"
+  "/analytics/payments/sub-errors":
+    $ref: "./paths/analytics@payments@sub-errors.yaml"
+  "/analytics/payments-tool":
+    $ref: "./paths/analytics@payments-tool.yaml"
+  "/analytics/refunds/amount":
+    $ref: "./paths/analytics@refunds@amount.yaml"
+  "/analytics/balances/current":
+    $ref: "./paths/analytics@balances@current.yaml"
+  "/analytics/balances/current-shop-balances":
+    $ref: "./paths/analytics@balances@current-shop-balances.yaml"
+  "/analytics/crediting/amount":
+    $ref: "./paths/analytics@crediting@amount.yaml"
+  "/invoices":
+    $ref: "./paths/invoices.yaml"
+  "/payments":
+    $ref: "./paths/payments.yaml"
+  "/refunds":
+    $ref: "./paths/refunds.yaml"
+  "/chargebacks":
+    $ref: "./paths/chargebacks.yaml"
+  "/invoice-templates":
+    $ref: "./paths/invoice-templates.yaml"
+  "/reports":
+    $ref: "./paths/reports.yaml"
+  "/reports/{reportID}":
+    $ref: "./paths/reports@{reportID}.yaml"
+  "/reports/{reportID}/cancel":
+    $ref: "./paths/reports@{reportID}@cancel.yaml"
+  "/reports/{reportID}/files/{fileID}/download":
+    $ref: "./paths/reports@{reportID}@files@{fileID}@download.yaml"
 components:
   securitySchemes:
     bearer:
-      $ref: './components/security-schemes/bearer.yaml'
+      $ref: "./components/security-schemes/bearer.yaml"
